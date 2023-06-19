@@ -1,0 +1,47 @@
+Online Reservation System in Java
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class OnlineRegistrationSystem {
+    public static void main(String[] args) {
+        ArrayList<User> users = new ArrayList<>();
+        Scanner input = new Scanner(System.in);
+        String name, email, password;
+
+        while (true) {
+            System.out.println("Please enter your name: ");
+            name = input.nextLine();
+
+            System.out.println("Please enter your email address: ");
+            email = input.nextLine();
+
+            System.out.println("Please enter a password: ");
+            password = input.nextLine();
+
+            User newUser = new User(name, email, password);
+            users.add(newUser);
+
+            System.out.println("Registration complete!");
+
+            System.out.println("Would you like to register another user? (Y/N)");
+            String choice = input.nextLine();
+
+            if (choice.equalsIgnoreCase("N")) {
+                break;
+            }
+        }
+
+        // Print out all registered users
+        System.out.println("All registered users:");
+        for (User user : users) {
+            System.out.println(user);
+        }
+    }
+}
+
+record User(String name, String email, String password) {
+
+    public String toString() {
+        return "Name: " + name + ", Email: " + email;
+    }
+}
