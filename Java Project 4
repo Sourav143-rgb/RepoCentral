@@ -1,0 +1,39 @@
+Online Examination System
+import java.util.Scanner;
+
+public class OnlineExamSystem {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // Create an array to store the questions
+        String[] questions = {"1. What is the capital of France?",
+                "2. What is the largest continent in the world?",
+                "3. Who wrote the Harry Potter series?"};
+
+        // Create an array to store the answers
+        String[] answers = {"Paris",
+                "Asia",
+                "J.K. Rowling"};
+
+        int numQuestions = questions.length;
+        int score = 0;
+
+        // Ask each question and check the answer
+        for (int i = 0; i < numQuestions; i++) {
+            System.out.println(questions[i]);
+            String userAnswer = sc.nextLine();
+
+            if (userAnswer.equalsIgnoreCase(answers[i])) {
+                System.out.println("Correct!");
+                score++;
+            } else {
+                System.out.println("Incorrect. The correct answer is " + answers[i]);
+            }
+        }
+
+        // Print the final score
+        System.out.println("Your score is " + score + " out of " + numQuestions);
+    }
+}
